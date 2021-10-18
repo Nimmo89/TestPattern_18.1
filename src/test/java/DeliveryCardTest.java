@@ -29,12 +29,12 @@ public class DeliveryCardTest {
     @Test
     void shouldDeliveryCardOrderOnOtherDate() {
         open("http://localhost:9999");
-        $("[data-test-id=city] input").setValue("Новосибирск");
+        $("[data-test-id=city] input").setValue("Кемерово");
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         String dateOfMeeting = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(dateOfMeeting);
-        $("[data-test-id=name] input").setValue("Павел-Кир");
-        $("[data-test-id=phone] input").setValue("+79238456240");
+        $("[data-test-id=name] input").setValue("Павел-К");
+        $("[data-test-id=phone] input").setValue("+79238456245");
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $(withText("Необходимо подтверждение")).shouldBe(visible);
