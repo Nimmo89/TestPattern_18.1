@@ -34,7 +34,7 @@ public class DeliveryCardTest {
         String dateOfMeeting = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(dateOfMeeting);
         $("[data-test-id=name] input").setValue("Павел-К");
-        $("[data-test-id=phone] input").setValue("+79238456245");
+        $("[data-test-id=phone] input").setValue("+79238456242");
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $(withText("Необходимо подтверждение")).shouldBe(visible);
