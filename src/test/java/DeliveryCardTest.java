@@ -27,7 +27,6 @@ public class DeliveryCardTest {
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         String dateOfMeetingReplan = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(dateOfMeetingReplan);
-//        $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $(withText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(10));
         $("[data-test-id=replan-notification] .notification__content").shouldHave(ownText("У вас уже запланирована встреча на другую дату. Перепланировать?"));
