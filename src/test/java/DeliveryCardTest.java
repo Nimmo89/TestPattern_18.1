@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
@@ -16,7 +14,6 @@ public class DeliveryCardTest {
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue(DataGenerator.generateCity());
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-//        String dateOfMeeting = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(DataGenerator.generateDate(3));
         $("[data-test-id=name] input").setValue(DataGenerator.generateName());
         $("[data-test-id=phone] input").setValue(DataGenerator.generatePhone());
@@ -25,7 +22,6 @@ public class DeliveryCardTest {
         $(withText("Успешно!")).shouldBe(visible);
         $("[data-test-id=success-notification] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + DataGenerator.generateDate(3)));
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-//        String dateOfMeetingReplan = LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(DataGenerator.generateDate(5));
         $$("button").find(exactText("Запланировать")).click();
         $(withText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(10));
