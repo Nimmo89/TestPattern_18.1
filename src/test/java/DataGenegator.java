@@ -7,9 +7,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Random;
 
-public class DataGenerator {
+class DataGenerator {
     private DataGenerator() {
     }
+
+    private static final Faker faker = new Faker(new Locale("ru"));
 
     public static String generateDate(int shift) {
         String date = LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
@@ -19,21 +21,22 @@ public class DataGenerator {
         return date;
     }
 
-    public static String generateCity(String locale) {
-        String city = Faker.;
+    public static String generateCity() {
+        String city = faker.address().city();
         // TODO: добавить логику для объявления переменной city и задания её значения, генерацию можно выполнить
         // с помощью Faker, либо используя массив валидных городов и класс Random
         return city;
     }
 
-    public String generateName(String locale) {
-        String name = Faker.name(locale).fullName();
+    public static String generateName() {
+        String name = faker.name().fullName();
         // TODO: добавить логику для объявления переменной name и задания её значения, для генерации можно
         // использовать Faker
         return name;
     }
 
-    public static String generatePhone(String locale) {
+    public static String generatePhone() {
+        String phone = faker.phoneNumber().phoneNumber();
         // TODO: добавить логику для объявления переменной phone и задания её значения, для генерации можно
         // использовать Faker
         return phone;
