@@ -16,8 +16,8 @@ public class DeliveryCardTest {
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Кемерово");
         $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        String dateOfMeeting = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").setValue(dateOfMeeting);
+//        String dateOfMeeting = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        $("[data-test-id=date] input").setValue(DataGenerator.generateDate(3));
         $("[data-test-id=name] input").setValue("Павел-К");
         $("[data-test-id=phone] input").setValue("+79238456245");
         $("[data-test-id=agreement]").click();
