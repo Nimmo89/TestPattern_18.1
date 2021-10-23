@@ -11,22 +11,18 @@ class DataGenerator {
     private static final Faker faker = new Faker(new Locale("ru"));
 
     public static String generateDate(int shift) {
-        String date = LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        return date;
+        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     public static String generateCity() {
-        String city = faker.address().city();
-        return city;
+        return faker.address().city();
     }
 
     public static String generateName() {
-        String name = faker.name().fullName();
-        return name;
+        return faker.name().fullName();
     }
 
     public static String generatePhone() {
-        String phone = faker.phoneNumber().phoneNumber();
-        return phone;
+        return faker.phoneNumber().phoneNumber();
     }
 }
